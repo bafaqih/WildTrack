@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Heart, CheckCircle, Award, Users, Target, Compass } from 'lucide-react';
+import { Heart, CheckCircle, Award, Users } from 'lucide-react';
 import aboutImage from '@/assets/images/about/about.jpg';
 
 const About = () => {
@@ -124,45 +124,7 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Mission & Vision Section */}
-            <section className="py-20 bg-white">
-                <div className="container-custom">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {/* Mission Card */}
-                        <div
-                            className="bg-gradient-to-br from-orange-500 to-red-500 p-10 rounded-2xl text-white shadow-lg md:card-hover"
-                            data-aos="fade-right"
-                        >
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="bg-white/20 p-3 rounded-full">
-                                    <Target className="w-8 h-8 text-white" />
-                                </div>
-                                <h3 className="text-xl font-display font-bold">Our Mission</h3>
-                            </div>
-                            <p className="text-white/90 leading-relaxed text-sm">
-                                To provide exceptional, authentic, and sustainable travel experiences that showcase the natural beauty and cultural richness of Labuan Bajo, while contributing positively to local communities and environmental conservation.
-                            </p>
-                        </div>
 
-                        {/* Vision Card */}
-                        <div
-                            className="bg-gradient-to-br from-blue-500 to-cyan-500 p-10 rounded-2xl text-white shadow-lg md:card-hover"
-                            data-aos="fade-left"
-                            data-aos-delay="200"
-                        >
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="bg-white/20 p-3 rounded-full">
-                                    <Compass className="w-8 h-8 text-white" />
-                                </div>
-                                <h3 className="text-xl font-display font-bold">Our Vision</h3>
-                            </div>
-                            <p className="text-white/90 leading-relaxed text-sm">
-                                To become the most trusted and preferred travel partner for adventurers seeking authentic experiences in Labuan Bajo, recognized for our commitment to sustainable tourism and exceptional service.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
     );
 };
