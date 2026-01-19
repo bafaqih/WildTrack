@@ -1,13 +1,34 @@
 import { useEffect, useState } from 'react';
-import { Clock, Users, Star, Check, ArrowRight } from 'lucide-react';
-import trips from '@/data/trips';
+import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, Send, MessageCircle } from 'lucide-react';
 
-const Destinations = () => {
-    const [selectedTrip, setSelectedTrip] = useState(null);
+const Contact = () => {
+    const [formData, setFormData] = useState({
+        fullName: '',
+        email: '',
+        phone: '',
+        message: ''
+    });
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Handle form submission
+        console.log('Form submitted:', formData);
+    };
+
+    const handleWhatsApp = () => {
+        window.open('https://wa.me/6281234567890', '_blank');
+    };
 
     return (
         <div className="min-h-screen">
@@ -23,167 +44,196 @@ const Destinations = () => {
                 </div>
                 <div className="relative z-10 container-custom text-center text-white">
                     <h1 className="text-4xl md:text-6xl font-display font-bold mb-4" data-aos="fade-up">
-                        Our Trip Packages
+                        Get In Touch
                     </h1>
                     <p className="text-xl md:text-2xl" data-aos="fade-up" data-aos-delay="100">
-                        Choose Your Perfect Labuan Bajo Adventure
+                        Let's Plan Your Adventure Together
                     </p>
                 </div>
             </section>
 
-            {/* Trips Grid */}
+            {/* Contact Section */}
             <section className="py-20 bg-gray-50">
                 <div className="container-custom">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        {trips.map((trip, index) => (
-                            <div
-                                key={trip.id}
-                                className="bg-white rounded-2xl shadow-lg overflow-hidden card-hover"
-                                data-aos="fade-up"
-                                data-aos-delay={index * 50}
-                            >
-                                {/* Image */}
-                                <div className="relative h-64 overflow-hidden group">
-                                    <div
-                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                                        style={{
-                                            backgroundImage: `url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=2070')`,
-                                        }}
-                                    ></div>
-                                    <div className="overlay-gradient"></div>
-                                    <div className="absolute top-4 right-4 bg-secondary text-white px-5 py-2 rounded-full font-bold">
-                                        {trip.price}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        {/* Contact Information */}
+                        <div data-aos="fade-right">
+                            <h2 className="text-3xl font-display font-bold mb-2">
+                                Contact <span className="text-secondary">Information</span>
+                            </h2>
+                            <p className="text-gray-600 mb-8">
+                                Have questions about our trips? Want to customize a package? Or just want to say hello? We'd love to hear from you! Our team is here to help you plan the perfect Labuan Bajo adventure.
+                            </p>
+
+                            {/* Our Office */}
+                            <div className="bg-white rounded-2xl p-6 mb-6 shadow-md card-hover">
+                                <div className="flex items-start gap-4">
+                                    <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                                        <MapPin className="w-6 h-6 text-secondary" />
                                     </div>
-                                    <div className="absolute bottom-4 left-6">
-                                        <h3 className="text-3xl font-display font-bold text-white mb-1">
-                                            {trip.title}
-                                        </h3>
+                                    <div>
+                                        <h3 className="font-bold text-lg mb-2">Our Office</h3>
+                                        <p className="text-gray-600">Jl. Soekarno Hatta No. 88</p>
+                                        <p className="text-gray-600">Labuan Bajo, Flores</p>
+                                        <p className="text-gray-600">NTT 86763, Indonesia</p>
                                     </div>
                                 </div>
+                            </div>
 
-                                {/* Content */}
-                                <div className="p-8">
-                                    {/* Trip Info */}
-                                    <div className="flex items-center gap-6 text-sm text-gray-600 mb-6 pb-6 border-b border-gray-200">
-                                        <div className="flex items-center gap-2">
-                                            <Clock className="w-5 h-5 text-secondary" />
-                                            <span className="font-semibold">{trip.duration}</span>
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <Users className="w-5 h-5 text-secondary" />
-                                            <span>Max {trip.maxGuests} guests</span>
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                                            <span className="font-semibold">{trip.rating}</span>
-                                        </div>
+                            {/* Phone & WhatsApp */}
+                            <div className="bg-white rounded-2xl p-6 mb-6 shadow-md card-hover">
+                                <div className="flex items-start gap-4">
+                                    <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                                        <Phone className="w-6 h-6 text-secondary" />
                                     </div>
-
-                                    {/* Description */}
-                                    <p className="text-gray-600 mb-6 leading-relaxed">
-                                        {trip.description}
-                                    </p>
-
-                                    {/* Highlights */}
-                                    <div className="mb-6">
-                                        <h4 className="font-bold text-gray-900 mb-3 text-lg">Trip Highlights:</h4>
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                            {trip.highlights.map((highlight, idx) => (
-                                                <div key={idx} className="flex items-start gap-2">
-                                                    <Check className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                                                    <span className="text-gray-700 text-sm">{highlight}</span>
-                                                </div>
-                                            ))}
-                                        </div>
+                                    <div>
+                                        <h3 className="font-bold text-lg mb-2">Phone & WhatsApp</h3>
+                                        <p className="text-secondary font-semibold">+62 812-3456-7890</p>
+                                        <p className="text-gray-600 text-sm">Available 24/7</p>
                                     </div>
+                                </div>
+                            </div>
 
-                                    {/* View Details Button */}
-                                    <button
-                                        onClick={() => setSelectedTrip(trip)}
-                                        className="w-full btn-primary flex items-center justify-center gap-2 group"
+                            {/* Email */}
+                            <div className="bg-white rounded-2xl p-6 mb-6 shadow-md card-hover">
+                                <div className="flex items-start gap-4">
+                                    <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                                        <Mail className="w-6 h-6 text-secondary" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-bold text-lg mb-2">Email</h3>
+                                        <p className="text-secondary font-semibold">info@wildtrackadventure.com</p>
+                                        <p className="text-gray-600 text-sm">We'll reply within 24 hours</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Follow Us */}
+                            <div className="bg-white rounded-2xl p-6 shadow-md">
+                                <h3 className="font-bold text-lg mb-4">Follow Us</h3>
+                                <div className="flex gap-4">
+                                    <a
+                                        href="#"
+                                        className="w-10 h-10 rounded-full bg-gray-100 hover:bg-secondary hover:text-white flex items-center justify-center transition-all duration-300"
                                     >
-                                        <span>View Full Itinerary</span>
-                                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                        <Facebook className="w-5 h-5" />
+                                    </a>
+                                    <a
+                                        href="#"
+                                        className="w-10 h-10 rounded-full bg-gray-100 hover:bg-secondary hover:text-white flex items-center justify-center transition-all duration-300"
+                                    >
+                                        <Instagram className="w-5 h-5" />
+                                    </a>
+                                    <a
+                                        href="#"
+                                        className="w-10 h-10 rounded-full bg-gray-100 hover:bg-secondary hover:text-white flex items-center justify-center transition-all duration-300"
+                                    >
+                                        <Twitter className="w-5 h-5" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Contact Form */}
+                        <div data-aos="fade-left">
+                            <div className="bg-white rounded-2xl p-8 shadow-lg">
+                                <h2 className="text-3xl font-display font-bold mb-8">
+                                    Send Us a <span className="text-secondary">Message</span>
+                                </h2>
+
+                                <form onSubmit={handleSubmit} className="space-y-6">
+                                    {/* Full Name */}
+                                    <div>
+                                        <label className="block text-gray-700 font-semibold mb-2">
+                                            Full Name <span className="text-secondary">*</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="fullName"
+                                            value={formData.fullName}
+                                            onChange={handleChange}
+                                            placeholder="Your name"
+                                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all"
+                                            required
+                                        />
+                                    </div>
+
+                                    {/* Email Address */}
+                                    <div>
+                                        <label className="block text-gray-700 font-semibold mb-2">
+                                            Email Address <span className="text-secondary">*</span>
+                                        </label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            placeholder="your.email@example.com"
+                                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all"
+                                            required
+                                        />
+                                    </div>
+
+                                    {/* Phone Number */}
+                                    <div>
+                                        <label className="block text-gray-700 font-semibold mb-2">
+                                            Phone Number
+                                        </label>
+                                        <input
+                                            type="tel"
+                                            name="phone"
+                                            value={formData.phone}
+                                            onChange={handleChange}
+                                            placeholder="+62 812 3456 7890"
+                                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all"
+                                        />
+                                    </div>
+
+                                    {/* Message */}
+                                    <div>
+                                        <label className="block text-gray-700 font-semibold mb-2">
+                                            Message <span className="text-secondary">*</span>
+                                        </label>
+                                        <textarea
+                                            name="message"
+                                            value={formData.message}
+                                            onChange={handleChange}
+                                            placeholder="Tell us about your dream trip..."
+                                            rows="5"
+                                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all resize-none"
+                                            required
+                                        ></textarea>
+                                    </div>
+
+                                    {/* Send Message Button */}
+                                    <button
+                                        type="submit"
+                                        className="w-full btn-primary flex items-center justify-center gap-2"
+                                    >
+                                        <Send className="w-5 h-5" />
+                                        <span>Send Message</span>
                                     </button>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
-            {/* Trip Detail Modal */}
-            {selectedTrip && (
-                <div
-                    className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
-                    onClick={() => setSelectedTrip(null)}
-                >
-                    <div
-                        className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <div className="p-8">
-                            <div className="flex justify-between items-start mb-6">
-                                <div>
-                                    <h2 className="text-3xl font-display font-bold mb-2">{selectedTrip.title}</h2>
-                                    <p className="text-gray-600">{selectedTrip.description}</p>
-                                </div>
-                                <button
-                                    onClick={() => setSelectedTrip(null)}
-                                    className="text-gray-400 hover:text-gray-600 text-2xl"
-                                >
-                                    ×
-                                </button>
-                            </div>
-
-                            {/* Itinerary */}
-                            <div className="mb-8">
-                                <h3 className="text-2xl font-display font-bold mb-6">Day-by-Day Itinerary</h3>
-                                <div className="space-y-6">
-                                    {selectedTrip.itinerary.map((day, idx) => (
-                                        <div key={idx} className="flex gap-4">
-                                            <div className="flex-shrink-0 w-16 h-16 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-lg">
-                                                D{day.day}
-                                            </div>
-                                            <div className="flex-grow">
-                                                <h4 className="font-bold text-lg mb-2">{day.title}</h4>
-                                                <p className="text-gray-600">{day.activities}</p>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* What's Included */}
-                            <div className="mb-8">
-                                <h3 className="text-2xl font-display font-bold mb-4">What's Included</h3>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                    {selectedTrip.included.map((item, idx) => (
-                                        <div key={idx} className="flex items-start gap-2">
-                                            <Check className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                                            <span className="text-gray-700">{item}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Price & Book */}
-                            <div className="flex items-center justify-between pt-6 border-t border-gray-200">
-                                <div>
-                                    <p className="text-sm text-gray-500 mb-1">Starting from</p>
-                                    <p className="text-3xl font-bold text-secondary">{selectedTrip.price}</p>
-                                    <p className="text-sm text-gray-500">{selectedTrip.priceUSD} per person</p>
-                                </div>
-                                <button className="btn-primary">
-                                    Book This Trip
-                                </button>
+                                    {/* WhatsApp Alternative */}
+                                    <div className="text-center">
+                                        <p className="text-gray-600 mb-3">Or contact us directly via WhatsApp</p>
+                                        <button
+                                            type="button"
+                                            onClick={handleWhatsApp}
+                                            className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2"
+                                        >
+                                            <MessageCircle className="w-5 h-5" />
+                                            <span>Chat on WhatsApp</span>
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            )}
+            </section>
         </div>
     );
 };
 
-export default Destinations;
+export default Contact;
