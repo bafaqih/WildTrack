@@ -143,8 +143,8 @@ const Navbar = () => {
 
                 {/* Mobile Menu */}
                 {/* Mobile Menu */}
-                <div className={`lg:hidden bg-white shadow-lg rounded-lg py-4 px-4 overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen
-                    ? 'max-h-96 opacity-100 translate-y-0 mt-2'
+                <div className={`lg:hidden bg-white shadow-lg rounded-lg px-4 overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen
+                    ? 'max-h-96 opacity-100 translate-y-0 mt-2 py-4'
                     : 'max-h-0 opacity-0 -translate-y-4 py-0'
                     }`}>
                     {navLinks.map((link) => (
