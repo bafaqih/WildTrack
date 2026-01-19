@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 import destinations from '@/data/destinations';
 
 const DestinationHighlights = () => {
-    // Get first 5 destinations for home page
-    const highlightedDestinations = destinations.slice(0, 5);
+    // Get first 6 destinations for home page
+    const highlightedDestinations = destinations.slice(0, 6);
 
     return (
         <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
@@ -23,8 +23,8 @@ const DestinationHighlights = () => {
                     {highlightedDestinations.map((destination, index) => (
                         <div
                             key={destination.id}
-                            className={`relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg card-hover h-80 ${index === 0 ? 'md:col-span-2 md:row-span-2 h-full' : ''
-                                }`}
+                            className={`relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg card-hover h-80 ${index === 0 ? 'md:col-span-2 md:row-span-2 md:h-full' : ''
+                                } ${index >= 3 ? 'hidden md:block' : ''}`}
                             data-aos="zoom-in"
                             data-aos-delay={index * 50}
                         >
@@ -32,7 +32,7 @@ const DestinationHighlights = () => {
                             <div
                                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                                 style={{
-                                    backgroundImage: `url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=2070')`,
+                                    backgroundImage: `url('${destination.image}')`,
                                 }}
                             ></div>
 
@@ -41,21 +41,24 @@ const DestinationHighlights = () => {
 
                             {/* Content */}
                             <div className="absolute inset-0 flex flex-col justify-end p-6">
-                                <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 transform group-hover:translate-y-0 transition-transform">
+                                <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 transform transition-transform duration-300 group-hover:-translate-y-2">
                                     {destination.name}
                                 </h3>
-                                <p className="text-white/90 mb-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                                    {destination.description}
-                                </p>
-                                <div className="flex flex-wrap gap-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-100">
-                                    {destination.activities.map((activity, idx) => (
-                                        <span
-                                            key={idx}
-                                            className="px-3 py-1 bg-secondary/90 text-white text-sm rounded-full"
-                                        >
-                                            {activity}
-                                        </span>
-                                    ))}
+
+                                <div className="max-h-0 opacity-0 group-hover:max-h-[200px] group-hover:opacity-100 transition-all duration-500 ease-in-out overflow-hidden">
+                                    <p className="text-white/90 mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+                                        {destination.description}
+                                    </p>
+                                    <div className="flex flex-wrap gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">
+                                        {destination.activities.map((activity, idx) => (
+                                            <span
+                                                key={idx}
+                                                className="px-3 py-1 bg-secondary/90 text-white text-sm rounded-full"
+                                            >
+                                                {activity}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
 

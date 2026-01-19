@@ -1,23 +1,45 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Play } from 'lucide-react';
 
+import hero1 from '../../assets/images/home/hero-1.jpg';
+import hero2 from '../../assets/images/home/hero-2.jpg';
+import hero3 from '../../assets/images/home/hero-3.jpg';
+import hero4 from '../../assets/images/home/hero-4.jpg';
+
+const heroImages = [hero1, hero2, hero3, hero4];
+
 const Hero = () => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
-            {/* Background Image with Overlay */}
-            <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{
-                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=2070')`,
-                }}
-            >
-                <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70"></div>
-            </div>
+            {/* Background Image Carousel */}
+            {heroImages.map((image, index) => (
+                <div
+                    key={index}
+                    className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                        }`}
+                    style={{
+                        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${image})`,
+                    }}
+                >
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70"></div>
+                </div>
+            ))}
 
             {/* Content */}
             <div className="relative z-10 container-custom text-center text-white">
                 <div data-aos="fade-up" data-aos-duration="1000">
-                    <p className="text-secondary font-semibold text-lg md:text-xl mb-4">
+                    <p className="text-secondary font-semibold text-sm md:text-xl mb-4">
                         Welcome To Wild Track Adventure
                     </p>
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight">
@@ -50,18 +72,6 @@ const Hero = () => {
                         <Play className="w-5 h-5" />
                         <span>View Open Trips</span>
                     </Link>
-                </div>
-
-                {/* Scroll Indicator */}
-                <div
-                    className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce"
-                    data-aos="fade-up"
-                    data-aos-duration="1000"
-                    data-aos-delay="400"
-                >
-                    <div className="w-6 h-10 border-2 border-white rounded-full flex items-start justify-center p-2">
-                        <div className="w-1 h-3 bg-white rounded-full"></div>
-                    </div>
                 </div>
             </div>
         </section>
