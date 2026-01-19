@@ -1,13 +1,34 @@
-import { useEffect, useState } from 'react';
-import { Clock, Users, Star, Check, ArrowRight } from 'lucide-react';
-import trips from '@/data/trips';
+import { useEffect } from 'react';
+import { Heart, CheckCircle, Award, Users, Target, Compass } from 'lucide-react';
+import aboutImage from '@/assets/images/about/about.jpg';
 
-const Destinations = () => {
-    const [selectedTrip, setSelectedTrip] = useState(null);
-
+const About = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    const values = [
+        {
+            icon: Heart,
+            title: "Passion",
+            desc: "We love what we do and it shows in every trip we organize"
+        },
+        {
+            icon: CheckCircle,
+            title: "Quality",
+            desc: "We never compromise on the quality of our services and experiences"
+        },
+        {
+            icon: Award,
+            title: "Excellence",
+            desc: "Striving for excellence in every detail of your journey"
+        },
+        {
+            icon: Users,
+            title: "Community",
+            desc: "Supporting local communities and sustainable tourism"
+        }
+    ];
 
     return (
         <div className="min-h-screen">
@@ -23,167 +44,127 @@ const Destinations = () => {
                 </div>
                 <div className="relative z-10 container-custom text-center text-white">
                     <h1 className="text-4xl md:text-6xl font-display font-bold mb-4" data-aos="fade-up">
-                        Our Trip Packages
+                        About Wild Track
                     </h1>
                     <p className="text-xl md:text-2xl" data-aos="fade-up" data-aos-delay="100">
-                        Choose Your Perfect Labuan Bajo Adventure
+                        Your Gateway to Labuan Bajo's Hidden Treasures
                     </p>
                 </div>
             </section>
 
-            {/* Trips Grid */}
+            {/* Our Story Section */}
+            <section className="py-20">
+                <div className="container-custom">
+                    <div className="flex flex-col md:grid md:grid-cols-2 gap-4 md:gap-x-12 md:gap-y-0">
+                        {/* Title */}
+                        <div className="md:col-start-1 md:row-start-1" data-aos="fade-right">
+                            <h2 className="text-4xl font-display font-bold text-gray-900 mb-2">
+                                Our <span className="text-secondary">Story</span>
+                            </h2>
+                        </div>
+
+                        {/* Image */}
+                        <div
+                            className="order-2 md:order-none md:col-start-2 md:row-start-1 md:row-span-2 w-full"
+                            data-aos="fade-left"
+                        >
+                            <div className="relative rounded-2xl overflow-hidden shadow-xl group aspect-video">
+                                <img
+                                    src={aboutImage}
+                                    alt="About Wild Track Adventure"
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Text Content */}
+                        <div className="order-3 md:order-none md:col-start-1 md:row-start-2 text-gray-600 leading-relaxed space-y-4" data-aos="fade-up">
+                            <p>
+                                Wild Track Adventure was born from a passion for exploration and a deep love for Labuan Bajo's natural wonders. Founded by local adventurers who grew up exploring these islands, we understand the magic that makes this region so special.
+                            </p>
+                            <p>
+                                Since our establishment, we've been dedicated to providing authentic, sustainable, and unforgettable travel experiences. We believe that travel should be more than just visiting places—it should be about creating meaningful connections with nature, culture, and people.
+                            </p>
+                            <p>
+                                Our team consists of experienced local guides who are not only knowledgeable about the area but are also passionate about sharing the beauty of Labuan Bajo with travelers from around the world.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Our Values Section */}
             <section className="py-20 bg-gray-50">
                 <div className="container-custom">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        {trips.map((trip, index) => (
+                    <div className="text-center max-w-2xl mx-auto mb-12">
+                        <h2 className="text-4xl font-display font-bold text-gray-900 mb-4" data-aos="fade-up">
+                            Our <span className="text-secondary">Values</span>
+                        </h2>
+                        <p className="text-gray-600" data-aos="fade-up" data-aos-delay="100">
+                            The principles that guide everything we do
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {values.map((item, index) => (
                             <div
-                                key={trip.id}
-                                className="bg-white rounded-2xl shadow-lg overflow-hidden card-hover"
+                                key={index}
+                                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 group text-center"
                                 data-aos="fade-up"
-                                data-aos-delay={index * 50}
+                                data-aos-delay={index * 100}
                             >
-                                {/* Image */}
-                                <div className="relative h-64 overflow-hidden group">
-                                    <div
-                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                                        style={{
-                                            backgroundImage: `url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=2070')`,
-                                        }}
-                                    ></div>
-                                    <div className="overlay-gradient"></div>
-                                    <div className="absolute top-4 right-4 bg-secondary text-white px-5 py-2 rounded-full font-bold">
-                                        {trip.price}
-                                    </div>
-                                    <div className="absolute bottom-4 left-6">
-                                        <h3 className="text-3xl font-display font-bold text-white mb-1">
-                                            {trip.title}
-                                        </h3>
-                                    </div>
+                                <div className="w-16 h-16 mx-auto mb-6 bg-orange-100 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                                    <item.icon className="w-8 h-8 text-secondary" />
                                 </div>
-
-                                {/* Content */}
-                                <div className="p-8">
-                                    {/* Trip Info */}
-                                    <div className="flex items-center gap-6 text-sm text-gray-600 mb-6 pb-6 border-b border-gray-200">
-                                        <div className="flex items-center gap-2">
-                                            <Clock className="w-5 h-5 text-secondary" />
-                                            <span className="font-semibold">{trip.duration}</span>
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <Users className="w-5 h-5 text-secondary" />
-                                            <span>Max {trip.maxGuests} guests</span>
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                                            <span className="font-semibold">{trip.rating}</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Description */}
-                                    <p className="text-gray-600 mb-6 leading-relaxed">
-                                        {trip.description}
-                                    </p>
-
-                                    {/* Highlights */}
-                                    <div className="mb-6">
-                                        <h4 className="font-bold text-gray-900 mb-3 text-lg">Trip Highlights:</h4>
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                            {trip.highlights.map((highlight, idx) => (
-                                                <div key={idx} className="flex items-start gap-2">
-                                                    <Check className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                                                    <span className="text-gray-700 text-sm">{highlight}</span>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    {/* View Details Button */}
-                                    <button
-                                        onClick={() => setSelectedTrip(trip)}
-                                        className="w-full btn-primary flex items-center justify-center gap-2 group"
-                                    >
-                                        <span>View Full Itinerary</span>
-                                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                    </button>
-                                </div>
+                                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Trip Detail Modal */}
-            {selectedTrip && (
-                <div
-                    className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
-                    onClick={() => setSelectedTrip(null)}
-                >
-                    <div
-                        className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <div className="p-8">
-                            <div className="flex justify-between items-start mb-6">
-                                <div>
-                                    <h2 className="text-3xl font-display font-bold mb-2">{selectedTrip.title}</h2>
-                                    <p className="text-gray-600">{selectedTrip.description}</p>
+            {/* Mission & Vision Section */}
+            <section className="py-20 bg-white">
+                <div className="container-custom">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {/* Mission Card */}
+                        <div
+                            className="bg-gradient-to-br from-orange-500 to-red-500 p-10 rounded-2xl text-white shadow-lg md:card-hover"
+                            data-aos="fade-right"
+                        >
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="bg-white/20 p-3 rounded-full">
+                                    <Target className="w-8 h-8 text-white" />
                                 </div>
-                                <button
-                                    onClick={() => setSelectedTrip(null)}
-                                    className="text-gray-400 hover:text-gray-600 text-2xl"
-                                >
-                                    ×
-                                </button>
+                                <h3 className="text-xl font-display font-bold">Our Mission</h3>
                             </div>
+                            <p className="text-white/90 leading-relaxed text-sm">
+                                To provide exceptional, authentic, and sustainable travel experiences that showcase the natural beauty and cultural richness of Labuan Bajo, while contributing positively to local communities and environmental conservation.
+                            </p>
+                        </div>
 
-                            {/* Itinerary */}
-                            <div className="mb-8">
-                                <h3 className="text-2xl font-display font-bold mb-6">Day-by-Day Itinerary</h3>
-                                <div className="space-y-6">
-                                    {selectedTrip.itinerary.map((day, idx) => (
-                                        <div key={idx} className="flex gap-4">
-                                            <div className="flex-shrink-0 w-16 h-16 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-lg">
-                                                D{day.day}
-                                            </div>
-                                            <div className="flex-grow">
-                                                <h4 className="font-bold text-lg mb-2">{day.title}</h4>
-                                                <p className="text-gray-600">{day.activities}</p>
-                                            </div>
-                                        </div>
-                                    ))}
+                        {/* Vision Card */}
+                        <div
+                            className="bg-gradient-to-br from-blue-500 to-cyan-500 p-10 rounded-2xl text-white shadow-lg md:card-hover"
+                            data-aos="fade-left"
+                            data-aos-delay="200"
+                        >
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="bg-white/20 p-3 rounded-full">
+                                    <Compass className="w-8 h-8 text-white" />
                                 </div>
+                                <h3 className="text-xl font-display font-bold">Our Vision</h3>
                             </div>
-
-                            {/* What's Included */}
-                            <div className="mb-8">
-                                <h3 className="text-2xl font-display font-bold mb-4">What's Included</h3>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                    {selectedTrip.included.map((item, idx) => (
-                                        <div key={idx} className="flex items-start gap-2">
-                                            <Check className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                                            <span className="text-gray-700">{item}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Price & Book */}
-                            <div className="flex items-center justify-between pt-6 border-t border-gray-200">
-                                <div>
-                                    <p className="text-sm text-gray-500 mb-1">Starting from</p>
-                                    <p className="text-3xl font-bold text-secondary">{selectedTrip.price}</p>
-                                    <p className="text-sm text-gray-500">{selectedTrip.priceUSD} per person</p>
-                                </div>
-                                <button className="btn-primary">
-                                    Book This Trip
-                                </button>
-                            </div>
+                            <p className="text-white/90 leading-relaxed text-sm">
+                                To become the most trusted and preferred travel partner for adventurers seeking authentic experiences in Labuan Bajo, recognized for our commitment to sustainable tourism and exceptional service.
+                            </p>
                         </div>
                     </div>
                 </div>
-            )}
+            </section>
         </div>
     );
 };
 
-export default Destinations;
+export default About;
