@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const Gallery = () => {
+const Contact = () => {
     const [selectedCategory, setSelectedCategory] = useState('all');
 
     useEffect(() => {
@@ -134,4 +134,4 @@ const Gallery = () => {
     );
 };
 
-export default Gallery;
+export default Contact;
