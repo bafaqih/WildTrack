@@ -1,13 +1,30 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Calendar } from 'lucide-react';
 import logoWhite from '@/assets/images/wt-white.png';
 import logoBlack from '@/assets/images/wt-black.png';
+import iconWhite from '@/assets/images/icon-wt-white.png';
+import iconBlack from '@/assets/images/icon-wt-black.png';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
+    const navRef = useRef(null);
+
+    // Close menu when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (navRef.current && !navRef.current.contains(event.target)) {
+                setIsMobileMenuOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -30,27 +47,46 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-                    ? 'bg-white/90 backdrop-blur-md shadow-lg'
-                    : 'bg-transparent'
-                }`}
+            ref={navRef}
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled || isMobileMenuOpen
+                ? 'bg-white shadow-lg'
+                : 'bg-transparent'
+                } ${isMobileMenuOpen ? 'pb-5' : ''}`}
         >
             <div className="container-custom">
-                <div className="flex items-center justify-between h-20">
+                <div className="flex items-center justify-between h-16 md:h-20">
                     {/* Logo */}
-                    <Link to="/" className="relative inline-block h-12 md:h-14 -ml-6 md:-ml-8" style={{ width: '200px' }}>
-                        {/* Logo White - visible when not scrolled */}
+                    <Link
+                        to="/"
+                        className="grid items-center"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                        {/* Mobile Icon White - visible when not scrolled */}
+                        <img
+                            src={iconWhite}
+                            alt="Wild Track Adventure"
+                            className={`md:hidden col-start-1 row-start-1 h-10 w-auto object-contain transition-opacity duration-500 ${isScrolled || isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
+                                }`}
+                        />
+                        {/* Mobile Icon Black - visible when scrolled */}
+                        <img
+                            src={iconBlack}
+                            alt="Wild Track Adventure"
+                            className={`md:hidden col-start-1 row-start-1 h-10 w-auto object-contain transition-opacity duration-500 ${isScrolled || isMobileMenuOpen ? 'opacity-100' : 'opacity-0'
+                                }`}
+                        />
+                        {/* Desktop Logo White - visible when not scrolled */}
                         <img
                             src={logoWhite}
                             alt="Wild Track Adventure"
-                            className={`absolute top-0 left-0 h-full w-full object-contain transition-opacity duration-500 ${isScrolled ? 'opacity-0' : 'opacity-100'
+                            className={`hidden md:block col-start-1 row-start-1 h-14 w-auto object-contain transition-opacity duration-500 ${isScrolled ? 'opacity-0' : 'opacity-100'
                                 }`}
                         />
-                        {/* Logo Black - visible when scrolled */}
+                        {/* Desktop Logo Black - visible when scrolled */}
                         <img
                             src={logoBlack}
                             alt="Wild Track Adventure"
-                            className={`absolute top-0 left-0 h-full w-full object-contain transition-opacity duration-500 ${isScrolled ? 'opacity-100' : 'opacity-0'
+                            className={`hidden md:block col-start-1 row-start-1 h-14 w-auto object-contain transition-opacity duration-500 ${isScrolled ? 'opacity-100' : 'opacity-0'
                                 }`}
                         />
                     </Link>
@@ -63,10 +99,10 @@ const Navbar = () => {
                                     key={link.path}
                                     to={link.path}
                                     className={`relative font-medium transition-colors duration-300 py-2 pb-1 ${isActive(link.path)
-                                            ? 'text-secondary'
-                                            : isScrolled
-                                                ? 'text-gray-800 hover:text-secondary'
-                                                : 'text-white hover:text-secondary'
+                                        ? 'text-secondary'
+                                        : isScrolled
+                                            ? 'text-gray-800 hover:text-secondary'
+                                            : 'text-white hover:text-secondary'
                                         }`}
                                 >
                                     {link.name}
@@ -98,42 +134,44 @@ const Navbar = () => {
                         aria-label="Toggle menu"
                     >
                         {isMobileMenuOpen ? (
-                            <X className={`w-6 h-6 ${isScrolled ? 'text-gray-800' : 'text-white'}`} />
+                            <X className={`w-6 h-6 ${isScrolled || isMobileMenuOpen ? 'text-gray-800' : 'text-white'}`} />
                         ) : (
-                            <Menu className={`w-6 h-6 ${isScrolled ? 'text-gray-800' : 'text-white'}`} />
+                            <Menu className={`w-6 h-6 ${isScrolled || isMobileMenuOpen ? 'text-gray-800' : 'text-white'}`} />
                         )}
                     </button>
                 </div>
 
                 {/* Mobile Menu */}
-                {isMobileMenuOpen && (
-                    <div className="lg:hidden bg-white/95 backdrop-blur-md shadow-lg rounded-lg mt-2 py-4 px-4 animate-fade-in">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.path}
-                                to={link.path}
-                                className={`block py-3 font-medium transition-colors relative ${isActive(link.path)
-                                        ? 'text-secondary'
-                                        : 'text-gray-800 hover:text-secondary'
-                                    }`}
-                                onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                                {link.name}
-                                {isActive(link.path) && (
-                                    <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-secondary rounded-r"></span>
-                                )}
-                            </Link>
-                        ))}
+                {/* Mobile Menu */}
+                <div className={`lg:hidden bg-white shadow-lg rounded-lg py-4 px-4 overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen
+                    ? 'max-h-96 opacity-100 translate-y-0 mt-2'
+                    : 'max-h-0 opacity-0 -translate-y-4 py-0'
+                    }`}>
+                    {navLinks.map((link) => (
                         <Link
-                            to="/contact"
-                            className="flex items-center justify-center gap-2 mt-4 btn-primary"
+                            key={link.path}
+                            to={link.path}
+                            className={`block py-3 pl-3 font-medium transition-colors relative ${isActive(link.path)
+                                ? 'text-secondary'
+                                : 'text-gray-800 hover:text-secondary'
+                                }`}
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
-                            <Calendar className="w-5 h-5" />
-                            <span>Book Now</span>
+                            {link.name}
+                            {isActive(link.path) && (
+                                <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-secondary rounded-r"></span>
+                            )}
                         </Link>
-                    </div>
-                )}
+                    ))}
+                    <Link
+                        to="/contact"
+                        className="flex items-center justify-center gap-2 mt-4 btn-primary"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                        <Calendar className="w-5 h-5" />
+                        <span>Book Now</span>
+                    </Link>
+                </div>
             </div>
         </nav>
     );
