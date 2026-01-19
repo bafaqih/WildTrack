@@ -10,6 +10,8 @@ import About from './pages/About';
 import Destinations from './pages/Destinations';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import ScrollToTopButton from './components/common/ScrollToTopButton';
+import WhatsAppButton from './components/common/WhatsAppButton';
 
 // Scroll to top component
 function ScrollToTop() {
@@ -36,6 +38,8 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <WhatsAppButton />
+      <ScrollToTopButton />
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow">
