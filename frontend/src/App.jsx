@@ -10,6 +10,7 @@ import About from './pages/About';
 import Destinations from './pages/Destinations';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 import ScrollToTopButton from './components/common/ScrollToTopButton';
 import WhatsAppButton from './components/common/WhatsAppButton';
 
@@ -49,6 +50,7 @@ function App() {
             <Route path="/destinations" element={<Destinations />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
