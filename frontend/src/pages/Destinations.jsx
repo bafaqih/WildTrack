@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Clock, Users, Star, Check, ArrowRight, Compass, MessageCircle } from 'lucide-react';
 import trips from '@/data/trips';
+import heroBg from '../assets/images/hero/hero-default.jpg';
 
 const Destinations = () => {
     const [selectedTrip, setSelectedTrip] = useState(null);
@@ -17,7 +18,7 @@ const Destinations = () => {
                     <div
                         className="absolute inset-0 bg-cover bg-center"
                         style={{
-                            backgroundImage: `url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=2070')`,
+                            backgroundImage: `url(${heroBg})`,
                         }}
                     ></div>
                 </div>
