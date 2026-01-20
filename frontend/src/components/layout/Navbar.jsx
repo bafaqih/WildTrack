@@ -48,10 +48,17 @@ const Navbar = () => {
 
     const isActive = (path) => location.pathname === path;
 
+    // List of pages that have a hero section and need a transparent navbar initially
+    const heroPages = ['/', '/about', '/destinations', '/gallery', '/contact'];
+    const isHeroPage = heroPages.includes(location.pathname);
+
+    // Determine if we should show the dark version of the navbar (solid bg, black text)
+    const showDarkNav = isScrolled || !isHeroPage;
+
     return (
         <nav
             ref={navRef}
-            className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled || isMobileMenuOpen
+            className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${showDarkNav || isMobileMenuOpen
                 ? 'bg-white shadow-lg'
                 : 'bg-transparent'
                 } ${isMobileMenuOpen ? 'pb-5' : ''}`}
@@ -68,28 +75,28 @@ const Navbar = () => {
                         <img
                             src={iconWhite}
                             alt="Wild Track Adventure"
-                            className={`md:hidden col-start-1 row-start-1 h-10 w-auto object-contain transition-opacity duration-500 ${isScrolled || isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
+                            className={`md:hidden col-start-1 row-start-1 h-10 w-auto object-contain transition-opacity duration-500 ${showDarkNav || isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
                                 }`}
                         />
                         {/* Mobile Icon Black - visible when scrolled */}
                         <img
                             src={iconBlack}
                             alt="Wild Track Adventure"
-                            className={`md:hidden col-start-1 row-start-1 h-10 w-auto object-contain transition-opacity duration-500 ${isScrolled || isMobileMenuOpen ? 'opacity-100' : 'opacity-0'
+                            className={`md:hidden col-start-1 row-start-1 h-10 w-auto object-contain transition-opacity duration-500 ${showDarkNav || isMobileMenuOpen ? 'opacity-100' : 'opacity-0'
                                 }`}
                         />
                         {/* Desktop Logo White - visible when not scrolled */}
                         <img
                             src={logoWhite}
                             alt="Wild Track Adventure"
-                            className={`hidden md:block col-start-1 row-start-1 h-14 w-auto object-contain transition-opacity duration-500 ${isScrolled ? 'opacity-0' : 'opacity-100'
+                            className={`hidden md:block col-start-1 row-start-1 h-14 w-auto object-contain transition-opacity duration-500 ${showDarkNav ? 'opacity-0' : 'opacity-100'
                                 }`}
                         />
                         {/* Desktop Logo Black - visible when scrolled */}
                         <img
                             src={logoBlack}
                             alt="Wild Track Adventure"
-                            className={`hidden md:block col-start-1 row-start-1 h-14 w-auto object-contain transition-opacity duration-500 ${isScrolled ? 'opacity-100' : 'opacity-0'
+                            className={`hidden md:block col-start-1 row-start-1 h-14 w-auto object-contain transition-opacity duration-500 ${showDarkNav ? 'opacity-100' : 'opacity-0'
                                 }`}
                         />
                     </Link>
@@ -103,7 +110,7 @@ const Navbar = () => {
                                     to={link.path}
                                     className={`relative font-medium transition-colors duration-300 py-2 pb-1 ${isActive(link.path)
                                         ? 'text-secondary'
-                                        : isScrolled
+                                        : showDarkNav
                                             ? 'text-gray-800 hover:text-secondary'
                                             : 'text-white hover:text-secondary'
                                         }`}
@@ -137,9 +144,9 @@ const Navbar = () => {
                         aria-label="Toggle menu"
                     >
                         {isMobileMenuOpen ? (
-                            <X className={`w-6 h-6 ${isScrolled || isMobileMenuOpen ? 'text-gray-800' : 'text-white'}`} />
+                            <X className={`w-6 h-6 ${showDarkNav || isMobileMenuOpen ? 'text-gray-800' : 'text-white'}`} />
                         ) : (
-                            <Menu className={`w-6 h-6 ${isScrolled || isMobileMenuOpen ? 'text-gray-800' : 'text-white'}`} />
+                            <Menu className={`w-6 h-6 ${showDarkNav || isMobileMenuOpen ? 'text-gray-800' : 'text-white'}`} />
                         )}
                     </button>
                 </div>
