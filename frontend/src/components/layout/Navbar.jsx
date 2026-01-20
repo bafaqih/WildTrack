@@ -31,6 +31,9 @@ const Navbar = () => {
             setIsScrolled(window.scrollY > 50);
         };
 
+        // Initialize state immediately
+        handleScroll();
+
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -48,7 +51,7 @@ const Navbar = () => {
     return (
         <nav
             ref={navRef}
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled || isMobileMenuOpen
+            className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled || isMobileMenuOpen
                 ? 'bg-white shadow-lg'
                 : 'bg-transparent'
                 } ${isMobileMenuOpen ? 'pb-5' : ''}`}
@@ -153,7 +156,7 @@ const Navbar = () => {
                             to={link.path}
                             className={`block py-3 pl-3 font-medium transition-colors relative ${isActive(link.path)
                                 ? 'text-secondary'
-                                : 'text-gray-800 hover:text-secondary'
+                                : 'text-gray-800'
                                 }`}
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
