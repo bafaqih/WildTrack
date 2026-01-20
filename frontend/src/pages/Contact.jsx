@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { MapPin, Phone, Mail, Instagram, Facebook, Twitter, Send } from 'lucide-react';
+import heroBg from '../assets/images/hero/hero-default.jpg';
 
 const Contact = () => {
     useEffect(() => {
@@ -69,7 +70,7 @@ const Contact = () => {
                     <div
                         className="absolute inset-0 bg-cover bg-center"
                         style={{
-                            backgroundImage: `url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=2070')`,
+                            backgroundImage: `url(${heroBg})`,
                         }}
                     ></div>
                 </div>
