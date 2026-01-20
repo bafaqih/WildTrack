@@ -5,6 +5,7 @@ import {
     Sliders, Leaf, Headphones, Tag
 } from 'lucide-react';
 import aboutImage from '../assets/images/about/about.jpg';
+import heroBg from '../assets/images/hero/hero-default.jpg';
 
 const About = () => {
     useEffect(() => {
@@ -19,7 +20,7 @@ const About = () => {
                     <div
                         className="absolute inset-0 bg-cover bg-center"
                         style={{
-                            backgroundImage: `url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=2070')`,
+                            backgroundImage: `url(${heroBg})`,
                         }}
                     ></div>
                 </div>
