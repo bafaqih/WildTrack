@@ -12,7 +12,7 @@ const FeaturedTrips = () => {
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4">
-                        Featured <span className="text-secondary">Open Trips</span>
+                        Featured <span className="text-secondary">Trips</span>
                     </h2>
                     <p className="text-gray-600 text-lg">
                         Choose from our carefully curated trip packages to explore the wonders of Labuan Bajo

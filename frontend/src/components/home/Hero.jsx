@@ -44,7 +44,7 @@ const Hero = () => {
                     </p>
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight">
                         Explore The Wild Beauty<br />
-                        Of <span className="text-secondary">Labuan Bajo</span>
+                        Of <span className="text-secondary">Indonesia</span>
                     </h1>
                     <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-3xl mx-auto">
                         Discover pristine islands, meet Komodo dragons, and dive into crystal-clear waters.

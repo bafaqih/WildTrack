@@ -51,18 +51,17 @@ const About = () => {
                             </h2>
                             <div className="space-y-4 text-gray-600 leading-relaxed">
                                 <p>
-                                    Wild Track Adventure was born from a passion for exploration and a deep love for Labuan Bajo's natural wonders.
-                                    Founded by local adventurers who grew up exploring these islands, we understand the magic that makes this region
-                                    so special.
+                                    WILDTRACK ADVENTURE INDONESIA is an adventure activity agency and a business specializing in the rental
+                                    of camping equipment, glamping, gatherings, and trip organizing, located in Malang, East Java.
                                 </p>
                                 <p>
-                                    Since our establishment, we've been dedicated to providing authentic, sustainable, and unforgettable travel
-                                    experiences. We believe that travel should be more than just visiting places—it should be about creating
-                                    meaningful connections with nature, culture, and people.
+                                    We are engaged in the rental of camping equipment, outdoor activity equipment, and event venue setup for camping,
+                                    glamping, and gatherings, as well as providing several exclusive trips that tourists must explore when visiting Indonesia.
                                 </p>
                                 <p>
-                                    Our team consists of experienced local guides who are not only knowledgeable about the area but are also
-                                    passionate about sharing the beauty of Labuan Bajo with travelers from around the world.
+                                    We were established on July 27, 2016, and our headquarters are in Malang. To maintain quality and service standards in the
+                                    future, WILDTRACK ADVENTURE INDONESIA always prioritizes the best service with skilled staff and equipment that meet
+                                    standards, excellent hospitality, clear trip schedules, and the safety of travelers remains a top priority.
                                 </p>
                             </div>
                         </div>
@@ -136,22 +135,7 @@ const About = () => {
             <section className="py-20 bg-white">
                 <div className="container-custom">
                     <div className="grid md:grid-cols-2 gap-12">
-                        <div
-                            className="bg-gradient-to-br from-secondary to-secondary-dark text-white rounded-2xl p-10 shadow-xl group"
-                            data-aos="fade-up"
-                        >
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="p-3 bg-white/10 rounded-full backdrop-blur-sm shrink-0">
-                                    <Target className="w-8 h-8 md:w-10 md:h-10 text-white transition-transform duration-300 group-hover:scale-110" />
-                                </div>
-                                <h3 className="text-2xl md:text-3xl font-display font-bold">Our Mission</h3>
-                            </div>
-                            <p className="text-white/90 leading-relaxed text-lg">
-                                To provide exceptional, authentic, and sustainable travel experiences that showcase the natural beauty
-                                and cultural richness of Labuan Bajo, while contributing positively to local communities and environmental
-                                conservation.
-                            </p>
-                        </div>
+                        {/* Vision */}
                         <div
                             className="bg-gradient-to-br from-accent to-blue-600 text-white rounded-2xl p-10 shadow-xl group"
                             data-aos="fade-up"
@@ -162,10 +146,29 @@ const About = () => {
                                 </div>
                                 <h3 className="text-2xl md:text-3xl font-display font-bold">Our Vision</h3>
                             </div>
-                            <p className="text-white/90 leading-relaxed text-lg">
-                                To become the most trusted and preferred travel partner for adventurers seeking authentic experiences
-                                in Labuan Bajo, recognized for our commitment to sustainable tourism and exceptional service.
-                            </p>
+                            <ol className="text-white/90 leading-relaxed text-lg list-decimal list-outside pl-5 space-y-2">
+                                <li>To become the number one place for camping equipment rental, glamping, camping events, and trip organizers in Malang and East Java.</li>
+                                <li>To position WILDTRACK ADVENTURE INDONESIA as a camping equipment rental and trip organizer that prioritizes service and quality.</li>
+                                <li>To maintain WILDTRACK ADVENTURE INDONESIA's core business by prioritizing the best quality and service for its clients.</li>
+                            </ol>
+                        </div>
+
+                        {/* Mission */}
+                        <div
+                            className="bg-gradient-to-br from-secondary to-secondary-dark text-white rounded-2xl p-10 shadow-xl group"
+                            data-aos="fade-up"
+                        >
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="p-3 bg-white/10 rounded-full backdrop-blur-sm shrink-0">
+                                    <Target className="w-8 h-8 md:w-10 md:h-10 text-white transition-transform duration-300 group-hover:scale-110" />
+                                </div>
+                                <h3 className="text-2xl md:text-3xl font-display font-bold">Our Mission</h3>
+                            </div>
+                            <ol className="text-white/90 leading-relaxed text-lg list-decimal list-outside pl-5 space-y-2">
+                                <li>To provide services and products for camping equipment rental, glamping, and trip organizing by WILDTRACK ADVENTURE INDONESIA that align with client needs.</li>
+                                <li>To maintain the quality of equipment and services for camping, glamping, and trip organizing in line with consumer needs.</li>
+                                <li>Enhancing product promotion through online and offline media across various platforms that support outdoor activities.</li>
+                            </ol>
                         </div>
                     </div>
                 </div>
