@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
-import { Clock, Users, Star, ArrowRight } from 'lucide-react';
+import { Clock, Users, Star, ArrowRight, Check, MapPin, Tag } from 'lucide-react';
 import trips from '@/data/trips';
 
 const FeaturedTrips = () => {
-    // Get first 3 trips for featured section
-    const featuredTrips = trips.slice(0, 3);
+    // Get specific trips: Fullday Trip (lb-3), Sunset Trip (lb-2), Bromo Sunrise Private (br-2)
+    const featuredTrips = trips.filter(trip =>
+        ['lb-3', 'lb-2', 'br-2'].includes(trip.id)
+    );
 
     return (
         <section className="py-20 bg-white">
@@ -24,70 +26,91 @@ const FeaturedTrips = () => {
                     {featuredTrips.map((trip, index) => (
                         <div
                             key={trip.id}
-                            className="bg-white rounded-2xl shadow-lg overflow-hidden card-hover group"
+                            className="bg-white rounded-2xl shadow-lg overflow-hidden card-hover flex flex-col"
                             data-aos="fade-up"
                             data-aos-delay={index * 100}
                         >
                             {/* Image */}
-                            <div className="relative h-64 overflow-hidden">
+                            <div className="relative h-64 overflow-hidden group flex-shrink-0">
                                 <div
                                     className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                                     style={{
-                                        backgroundImage: `url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=2070')`,
+                                        backgroundImage: `url('${trip.image}')`,
                                     }}
                                 ></div>
                                 <div className="overlay-gradient"></div>
-                                <div className="absolute top-4 right-4 bg-secondary text-white px-4 py-2 rounded-full font-bold text-sm">
+
+                                {/* Location & Type Badges */}
+                                <div className="absolute top-4 left-4 flex flex-col gap-2">
+                                    <div className="bg-white/90 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-sm">
+                                        <MapPin className="w-3 h-3 text-secondary" />
+                                        {trip.location}
+                                    </div>
+                                    <div className="bg-secondary/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-sm">
+                                        <Tag className="w-3 h-3" />
+                                        {trip.type}
+                                    </div>
+                                </div>
+
+                                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-secondary px-4 py-2 rounded-full font-bold shadow-sm">
                                     {trip.price}
                                 </div>
-                                <div className="absolute bottom-4 left-4 right-4">
-                                    <h3 className="text-2xl font-display font-bold text-white mb-1">
+                                <div className="absolute bottom-4 left-6 right-6">
+                                    <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-1 leading-tight">
                                         {trip.title}
                                     </h3>
-                                    <p className="text-white/90 text-sm">{trip.shortDescription}</p>
                                 </div>
                             </div>
 
                             {/* Content */}
-                            <div className="p-6">
-                                <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
-                                    <div className="flex items-center gap-1">
-                                        <Clock className="w-4 h-4" />
-                                        <span>{trip.duration}</span>
+                            <div className="p-8 flex flex-col flex-1">
+                                {/* Trip Info */}
+                                <div className="flex items-center gap-4 text-sm text-gray-600 mb-6 pb-6 border-b border-gray-200 overflow-x-auto whitespace-nowrap">
+                                    <div className="flex items-center gap-2">
+                                        <Clock className="w-4 h-4 text-secondary flex-shrink-0" />
+                                        <span className="font-semibold">{trip.duration}</span>
                                     </div>
-                                    <div className="flex items-center gap-1">
-                                        <Users className="w-4 h-4" />
-                                        <span>Max {trip.maxGuests} pax</span>
+                                    <div className="flex items-center gap-2">
+                                        <Users className="w-4 h-4 text-secondary flex-shrink-0" />
+                                        <span>Max {trip.maxGuests} guests</span>
                                     </div>
-                                    <div className="flex items-center gap-1">
-                                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                                        <span>{trip.rating}</span>
+                                    <div className="flex items-center gap-2">
+                                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400 flex-shrink-0" />
+                                        <span className="font-semibold">{trip.rating}</span>
                                     </div>
                                 </div>
 
-                                <p className="text-gray-600 mb-6 line-clamp-2">
+                                {/* Description */}
+                                <p className="text-gray-600 mb-6 leading-relaxed line-clamp-3">
                                     {trip.description}
                                 </p>
 
                                 {/* Highlights */}
                                 <div className="mb-6">
-                                    <p className="font-semibold text-gray-900 mb-2">Highlights:</p>
-                                    <ul className="space-y-1">
-                                        {trip.highlights.slice(0, 3).map((highlight, idx) => (
-                                            <li key={idx} className="text-sm text-gray-600 flex items-start">
-                                                <span className="text-secondary mr-2">•</span>
-                                                <span>{highlight}</span>
-                                            </li>
+                                    <h4 className="font-bold text-gray-900 mb-3 text-lg">Trip Highlights:</h4>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                        {trip.highlights.slice(0, 4).map((highlight, idx) => (
+                                            <div key={idx} className="flex items-start gap-2">
+                                                <Check className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                                                <span className="text-gray-700 text-sm truncate" title={highlight}>{highlight}</span>
+                                            </div>
                                         ))}
-                                    </ul>
+                                        {trip.highlights.length > 4 && (
+                                            <div className="text-sm text-gray-400 italic pl-7">
+                                                + {trip.highlights.length - 4} more
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
 
+                                {/* View Details Button (Link) */}
                                 <Link
                                     to="/destinations"
-                                    className="w-full btn-primary flex items-center justify-center gap-2 group"
+                                    state={{ tripId: trip.id }}
+                                    className="w-full btn-primary flex items-center justify-center gap-2 group mt-auto"
                                 >
-                                    <span>Detail Trip</span>
-                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    <span>View Full Itinerary</span>
+                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </div>
                         </div>
