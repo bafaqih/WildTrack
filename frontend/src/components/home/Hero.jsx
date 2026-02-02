@@ -6,8 +6,13 @@ import hero1 from '../../assets/images/home/hero-1.jpg';
 import hero2 from '../../assets/images/home/hero-2.jpg';
 import hero3 from '../../assets/images/home/hero-3.jpg';
 import hero4 from '../../assets/images/home/hero-4.jpg';
+import hero5 from '../../assets/images/home/hero-5.jpg';
+import hero6 from '../../assets/images/home/hero-6.jpg';
+import hero7 from '../../assets/images/home/hero-7.jpg';
+import hero8 from '../../assets/images/home/hero-8.jpg';
+import hero9 from '../../assets/images/home/hero-9.jpg';
 
-const heroImages = [hero1, hero2, hero3, hero4];
+const heroImages = [hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8, hero9];
 
 const Hero = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
