@@ -1,189 +1,240 @@
-// Trip packages data for Wild Track Adventure - Labuan Bajo
+// Trip packages data for Wild Track Adventure
+// Images
+import oneDayTripImg from '../assets/images/destinations/onedaytrip.jpg';
+import sunsetTripImg from '../assets/images/destinations/sunsettrip.jpg';
+import fullDayTripImg from '../assets/images/destinations/fulldaytrip.jpg';
+import bromoSunriseImg from '../assets/images/destinations/bromosunrise.jpg';
+
 export const trips = [
-  {
-    id: 1,
-    title: "3D2N Adventure",
-    duration: "3 Days 2 Nights",
-    description: "Explore the highlights of Labuan Bajo in an unforgettable 3-day adventure",
-    shortDescription: "Padar, Rinca, Komodo",
-    price: "IDR 3.500K",
-    priceUSD: "$220",
-    image: "/src/assets/images/destinations/padar.jpg",
-    rating: 4.9,
-    maxGuests: 12,
-    highlights: [
-      "Padar Island Trekking",
-      "Komodo Dragon Encounter",
-      "Pink Beach",
-      "Snorkeling at Manta Point",
-      "Sunset at Kalong Island"
-    ],
-    itinerary: [
-      {
-        day: 1,
-        title: "Padar Island & Pink Beach",
-        activities: "Start with trekking Padar Island for iconic views, then relax at Pink Beach with snorkeling session"
-      },
-      {
-        day: 2,
-        title: "Komodo Island & Manta Point",
-        activities: "Meet Komodo Dragons in their natural habitat, snorkel with manta rays at Manta Point"
-      },
-      {
-        day: 3,
-        title: "Taka Makassar & Return",
-        activities: "Visit Taka Makassar sandbar, final snorkeling session, and sunset viewing before return"
-      }
-    ],
-    included: [
-      "Boat charter with captain & crew",
-      "Accommodation on boat",
-      "All meals during trip",
-      "Snorkeling equipment",
-      "National park fees",
-      "Professional guide"
-    ]
-  },
-  {
-    id: 2,
-    title: "4D3N Explorer",
-    duration: "4 Days 3 Nights",
-    description: "Complete Komodo National Park exploration with extended island hopping",
-    shortDescription: "Komodo, Pink Beach, Taka Makassar",
-    price: "IDR 4.800K",
-    priceUSD: "$305",
-    image: "/src/assets/images/destinations/komodo.jpg",
-    rating: 5.0,
-    maxGuests: 10,
-    highlights: [
-      "Padar Island Summit",
-      "Komodo & Rinca Islands",
-      "Pink Beach Paradise",
-      "Swimming with Manta Rays",
-      "Taka Makassar Sandbar",
-      "Sunset Cruise"
-    ],
-    itinerary: [
-      {
-        day: 1,
-        title: "Journey Begins - Kelor Island",
-        activities: "Depart from Labuan Bajo, visit Kelor Island for sunset trekking and snorkeling"
-      },
-      {
-        day: 2,
-        title: "Padar & Pink Beach",
-        activities: "Epic sunrise at Padar Island, Pink Beach relaxation, snorkeling at multiple spots"
-      },
-      {
-        day: 3,
-        title: "Komodo Dragons & Manta Point",
-        activities: "Komodo Island trekking, manta ray encounter, Kalong Island bat watching"
-      },
-      {
-        day: 4,
-        title: "Taka Makassar & Return",
-        activities: "Morning at Taka Makassar sandbar, final snorkeling, return to Labuan Bajo"
-      }
-    ],
-    included: [
-      "Private boat charter",
-      "3 nights on-board accommodation",
-      "All meals & fresh water",
-      "Snorkeling & safety equipment",
-      "National park entrance fees",
-      "English speaking tour guide",
-      "Airport transfer"
-    ]
-  },
-  {
-    id: 3,
-    title: "1 Day Trip",
-    duration: "1 Day",
-    description: "Quick but exciting day trip to experience Labuan Bajo's beauty",
-    shortDescription: "Kelor, Komodo, Pink Beach",
-    price: "IDR 1.200K",
-    priceUSD: "$75",
-    image: "/src/assets/images/destinations/pink-beach.jpg",
-    rating: 4.7,
-    maxGuests: 15,
-    highlights: [
-      "Kelor Island Snorkeling",
-      "Komodo Dragon Tracking",
-      "Pink Beach Visit",
-      "Local Lunch Included"
-    ],
-    itinerary: [
-      {
-        day: 1,
-        title: "Labuan Bajo Day Adventure",
-        activities: "Early morning departure, Kelor Island snorkeling, Komodo Island trekking to see dragons, Pink Beach relaxation, return by evening"
-      }
-    ],
-    included: [
-      "Shared boat transportation",
-      "Local guide",
-      "Lunch & mineral water",
-      "Snorkeling gear",
-      "Komodo National Park fee"
-    ]
-  },
-  {
-    id: 4,
-    title: "5D4N Ultimate",
-    duration: "5 Days 4 Nights",
-    description: "Ultimate Labuan Bajo experience with all highlights and hidden gems",
-    shortDescription: "Complete Komodo Experience",
-    price: "IDR 6.500K",
-    priceUSD: "$410",
-    image: "/src/assets/images/destinations/sunset.jpg",
-    rating: 5.0,
-    maxGuests: 8,
-    highlights: [
-      "All major islands",
-      "Multiple snorkeling spots",
-      "Komodo & Rinca Dragons",
-      "Sunset cruises",
-      "Local village visit",
-      "Premium accommodation"
-    ],
-    itinerary: [
-      {
-        day: 1,
-        title: "Departure & Kelor Island",
-        activities: "Pick up from hotel, sail to Kelor Island, snorkeling and sunset trekking"
-      },
-      {
-        day: 2,
-        title: "Padar Island & Pink Beach",
-        activities: "Sunrise at Padar Island, trekking to viewpoint, Pink Beach snorkeling"
-      },
-      {
-        day: 3,
-        title: "Komodo Island Adventure",
-        activities: "Komodo Dragon trekking, Manta Point snorkeling, Taka Makassar visit"
-      },
-      {
-        day: 4,
-        title: "Rinca Island & Secret Spots",
-        activities: "Rinca Island dragon tracking, hidden snorkeling spots, sunset cruise"
-      },
-      {
-        day: 5,
-        title: "Final Exploration & Return",
-        activities: "Morning snorkeling, local village visit, return to Labuan Bajo"
-      }
-    ],
-    included: [
-      "Private boat charter",
-      "4 nights premium accommodation",
-      "All meals & beverages",
-      "Complete snorkeling equipment",
-      "All entrance fees",
-      "Professional English guide",
-      "Airport transfer",
-      "Travel insurance"
-    ]
-  }
+    // LABUAN BAJO TRIPS
+    {
+        id: "lb-1",
+        title: "One Day Trip",
+        location: "Labuan Bajo",
+        type: "Open Trip",
+        duration: "1 Day (07.00 AM – 04.00 PM)",
+        description: "Experience the best of Komodo National Park in a single day. Visit 6 iconic destinations including Padar Island and Komodo Island.",
+        price: "IDR 1.450.000",
+        priceUnit: "/ pax",
+        image: oneDayTripImg,
+        rating: 4.8,
+        maxGuests: 15,
+        highlights: [
+            "Komodo Island",
+            "Padar Island",
+            "Taka Makassar",
+            "Pink Beach",
+            "Manta Point",
+            "Siaba"
+        ],
+        itinerary: [
+             {
+                day: 1,
+                title: "Full Day Adventure",
+                activities: "Start at 07:00 AM. Visit Komodo, Padar, Taka Makassar, Pink Beach, Manta Point, and Siaba. End at 04:00 PM."
+            }
+        ],
+        included: [
+            "Pickup and drop off hotel",
+            "Snack, coffee and tea",
+            "Tour guide",
+            "First aid",
+            "Snorkeling set",
+            "Mineral water free",
+            "Lunch"
+        ],
+        excluded: [
+            "Towel"
+        ],
+        additionalInfo: [
+            "Entrance fee WNA (6 & 8 Dest): 425K / pax",
+            "Entrance fee WNI (6 & 8 Dest): 250K / pax",
+            "Entrance fee WNA (3 Dest): 275K / pax",
+            "Entrance fee WNI (3 Dest): 75K / pax",
+            "Shuttle car Drop off (Airport – Hotel): 250K / One way",
+            "Soft drink / alcohol",
+            "Documentation (Photographer, Videographer, Drone, Gopro, etc)",
+            "Personal travel insurance"
+        ]
+    },
+    {
+        id: "lb-2",
+        title: "Sunset Trip",
+        location: "Labuan Bajo",
+        type: "Open Trip",
+        duration: "Half Day (03.00 PM – 07.00 PM)",
+        description: "Enjoy a relaxing afternoon visiting beautiful islands and witnessing the spectacular flying foxes at sunset.",
+        price: "IDR 1.250.000",
+        priceUnit: "/ pax",
+        image: sunsetTripImg,
+        rating: 4.9,
+        maxGuests: 15,
+        highlights: [
+            "Manjarite",
+            "Kelor Island",
+            "Sunset at Kalong Island"
+        ],
+        itinerary: [
+             {
+                day: 1,
+                title: "Sunset Journey",
+                activities: "Start at 03:00 PM. Visit Manjarite and Kelor Island. End with a magical sunset at Kalong Island. Finish at 07:00 PM."
+            }
+        ],
+        included: [
+            "Snack and soft drink",
+            "Tour guide",
+            "First aid",
+            "Snorkeling set",
+            "Mineral water free"
+        ],
+        excluded: [
+            "Towel"
+        ],
+        additionalInfo: [
+            "Entrance fee WNA (6 & 8 Dest): 425K / pax",
+            "Entrance fee WNI (6 & 8 Dest): 250K / pax",
+            "Entrance fee WNA (3 Dest): 275K / pax",
+            "Entrance fee WNI (3 Dest): 75K / pax",
+            "Shuttle car Drop off (Airport – Hotel): 250K / One way",
+            "Soft drink / alcohol",
+            "Documentation (Photographer, Videographer, Drone, Gopro, etc)",
+            "Personal travel insurance"
+        ]
+    },
+    {
+        id: "lb-3",
+        title: "Fullday Trip",
+        location: "Labuan Bajo",
+        type: "Open Trip",
+        duration: "Full Day (07.00 AM – 07.00 PM)",
+        description: "The ultimate one-day experience covering 8 breathtaking destinations in Komodo National Park from sunrise to sunset.",
+        price: "IDR 2.600.000",
+        priceUnit: "/ pax",
+        image: fullDayTripImg,
+        rating: 5.0,
+        maxGuests: 12,
+        highlights: [
+            "Padar Island",
+            "Pink Beach",
+            "Komodo Island",
+            "Taka Makassar",
+            "Manta Point",
+            "Siaba",
+            "Kelor Island",
+            "Sunset Kalong"
+        ],
+        itinerary: [
+            {
+                day: 1,
+                title: "The Ultimate Journey",
+                activities: "Start 07:00 AM. Explore Padar, Pink Beach, Komodo, Taka Makassar, Manta Point, Siaba, Kelor Island. End with Sunset at Kalong. Finish 07:00 PM."
+            }
+        ],
+        included: [
+            "Pick up and drop off hotel",
+            "Snack coffee and tea",
+            "Tour guide",
+            "First aid",
+            "Snorkeling set",
+            "Mineral water free",
+            "Lunch"
+        ],
+        excluded: [
+            "Towel"
+        ],
+        additionalInfo: [
+            "Entrance fee WNA (6 & 8 Dest): 425K / pax",
+            "Entrance fee WNI (6 & 8 Dest): 250K / pax",
+            "Entrance fee WNA (3 Dest): 275K / pax",
+            "Entrance fee WNI (3 Dest): 75K / pax",
+            "Shuttle car Drop off (Airport – Hotel): 250K / One way",
+            "Soft drink / alcohol",
+            "Documentation (Photographer, Videographer, Drone, Gopro, etc)",
+            "Personal travel insurance"
+        ]
+    },
+
+    // BROMO TRIPS
+    {
+        id: "br-1",
+        title: "Bromo Sunrise",
+        location: "Bromo",
+        type: "Open Trip (WNI)",
+        duration: "1 Night",
+        description: "Witness the iconic Bromo sunrise and explore the volcanic landscape with our jeep adventure.",
+        price: "IDR 345.000",
+        priceUnit: "/ pax",
+        image: bromoSunriseImg,
+        rating: 4.8,
+        maxGuests: 6,
+        highlights: [
+            "Sunrise View Point",
+            "Widodaren",
+            "Kawah Bromo / Pura Luhur",
+            "Pasir Berbisik",
+            "Bukit Teletubies / Savanna"
+        ],
+        itinerary: [
+             {
+                day: 1,
+                title: "Bromo Sunrise Adventure",
+                activities: "Departure from Malang, Sunrise at View Point, Explore Crater, Sea of Sand, and Savanna. Return to Malang."
+            }
+        ],
+        included: [
+            "Shuttle car : Kota malang – Tumpang (PP)",
+            "Welcome drink in basecamp tumpang",
+            "Jeep 4x4 : Tumpang – Bromo (PP)",
+            "Entrance fee",
+            "Tour leader as phographer",
+            "Gdrive photo trip"
+        ],
+        excluded: [
+            "Sewa kuda"
+        ],
+        additionalInfo: []
+    },
+    {
+        id: "br-2",
+        title: "Bromo Sunrise",
+        location: "Bromo",
+        type: "Private Trip",
+        duration: "1 Night",
+        description: "Exclusive private jeep tour for your group to enjoy Bromo's sunrise and scenery in comfort.",
+        price: "IDR 2.000.000",
+        priceUnit: "/ Jeep (Max 5 pax)",
+        image: bromoSunriseImg,
+        rating: 5.0,
+        maxGuests: 5,
+        highlights: [
+            "Sunrise View Point",
+            "Widodaren",
+            "Kawah Bromo / Pura Luhur",
+            "Pasir Berbisik",
+            "Bukit Teletubies / Savanna"
+        ],
+        itinerary: [
+             {
+                day: 1,
+                title: "Private Jeep Adventure",
+                activities: "Private pickup, Sunrise at View Point, Private exploration of Crater and Savanna. Flexible timing."
+            }
+        ],
+        included: [
+            "Shuttle car : Kota malang – Tumpang (PP)",
+            "Welcome drink in basecamp tumpang",
+            "Jeep 4x4 : Tumpang – Bromo (PP)",
+            "Entrance fee",
+            "Tour leader as phographer",
+            "Gdrive photo trip"
+        ],
+        excluded: [
+            "Sewa kuda",
+            "Additional Video Production"
+        ],
+        additionalInfo: []
+    }
 ];
 
 export default trips;
