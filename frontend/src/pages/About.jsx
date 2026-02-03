@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import aboutImage from '../assets/images/about/about.jpg';
 import heroBg from '../assets/images/hero/hero-default.jpg';
+import OurServices from '@/components/common/OurServices';
 
 const About = () => {
     useEffect(() => {
@@ -29,7 +30,7 @@ const About = () => {
                         About Us
                     </h1>
                     <p className="text-xl md:text-2xl" data-aos="fade-up" data-aos-delay="100">
-                        Your Gateway to Labuan Bajo's
+                        Your Gateway to Indonesian Nature
                     </p>
                 </div>
             </section>
@@ -174,8 +175,11 @@ const About = () => {
                 </div>
             </section>
 
+            {/* Our Services */}
+            <OurServices compact={true} grayBackground={true} />
+
             {/* Why Choose Us */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-20 bg-white">
                 <div className="container-custom">
                     <div className="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
                         <h2 className="text-2xl md:text-3xl font-display font-bold mb-4">

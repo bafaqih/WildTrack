@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Hero from '@/components/home/Hero';
+import OurServices from '@/components/common/OurServices';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
 import FeaturedTrips from '@/components/home/FeaturedTrips';
 import DestinationHighlights from '@/components/home/DestinationHighlights';
@@ -15,6 +16,7 @@ const Home = () => {
     return (
         <div className="min-h-screen">
             <Hero />
+            <OurServices />
             <WhyChooseUs />
             <FeaturedTrips />
             <DestinationHighlights />
