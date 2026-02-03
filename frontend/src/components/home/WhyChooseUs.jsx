@@ -25,7 +25,7 @@ const WhyChooseUs = () => {
     ];
 
     return (
-        <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+        <section className="py-20 bg-gray-50">
             <div className="container-custom">
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
