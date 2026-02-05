@@ -9,6 +9,10 @@ import komodoImg from '../assets/images/gallery/wildlife/komodo.jpg';
 import mantaImg from '../assets/images/gallery/underwater/manta.jpg';
 import pinkImg from '../assets/images/gallery/beaches/pink.jpg';
 import rincaImg from '../assets/images/gallery/beaches/rinca.jpg';
+import bromoImg from '../assets/images/gallery/mountains/bromo.jpg';
+import semeruImg from '../assets/images/gallery/mountains/semeru.jpg';
+import ijenImg from '../assets/images/gallery/mountains/ijen.jpg';
+import tumpakSewuImg from '../assets/images/gallery/waterfalls/tumpaksewu.jpg';
 
 const Gallery = () => {
     const [selectedCategory, setSelectedCategory] = useState('all');
@@ -54,6 +58,8 @@ const Gallery = () => {
     const categories = [
         { id: 'all', name: 'All Photos' },
         { id: 'islands', name: 'Islands' },
+        { id: 'mountains', name: 'Mountains' },
+        { id: 'waterfalls', name: 'Waterfalls' },
         { id: 'wildlife', name: 'Wildlife' },
         { id: 'underwater', name: 'Underwater' },
         { id: 'beaches', name: 'Beaches' },
@@ -66,6 +72,10 @@ const Gallery = () => {
         { id: 4, category: 'underwater', title: 'Manta Point', url: mantaImg },
         { id: 5, category: 'islands', title: 'Taka Makassar', url: takaImg },
         { id: 6, category: 'beaches', title: 'Rinca Island', url: rincaImg },
+        { id: 7, category: 'mountains', title: 'Mount Bromo', url: bromoImg },
+        { id: 8, category: 'mountains', title: 'Mount Semeru', url: semeruImg },
+        { id: 9, category: 'mountains', title: 'Ijen Crater', url: ijenImg },
+        { id: 10, category: 'waterfalls', title: 'Tumpak Sewu', url: tumpakSewuImg },
     ];
 
     const socialLinks = [
@@ -121,7 +131,7 @@ const Gallery = () => {
                         Photo Gallery
                     </h1>
                     <p className="text-xl md:text-2xl" data-aos="fade-up" data-aos-delay="100">
-                        Discover the Beauty
+                        Discover the Beauty of Indonesia
                     </p>
                 </div>
             </section>
