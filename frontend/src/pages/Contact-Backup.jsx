@@ -93,7 +93,7 @@ const Contact = () => {
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-lg mb-2">Phone & WhatsApp</h3>
-                                        <a href="tel:+6281234567890" className="text-secondary hover:underline">
+                                        <a href="tel:+6282244308302" className="text-secondary hover:underline">
                                             +62 812-3456-7890
                                         </a>
                                         <p className="text-sm text-gray-500 mt-1">Available 24/7</p>
@@ -246,7 +246,7 @@ const Contact = () => {
                                 <div className="mt-8 pt-8 border-t border-gray-200">
                                     <p className="text-center text-gray-600 mb-4">Or contact us directly via WhatsApp</p>
                                     <a
-                                        href="https://wa.me/6281234567890"
+                                        href="https://wa.me/6282244308302"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="w-full flex items-center justify-center gap-2 bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-all duration-300 shadow-lg hover:shadow-xl"

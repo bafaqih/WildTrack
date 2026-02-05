@@ -156,7 +156,7 @@ const Destinations = () => {
                                 </p>
                             </div>
                             <a
-                                href="https://wa.me/6281234567890" // Update this number if needed
+                                href="https://wa.me/6282244308302" // Update this number if needed
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="bg-white text-secondary hover:bg-orange-50 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:-translate-y-1 shadow-lg flex items-center gap-3 whitespace-nowrap"
@@ -292,7 +292,7 @@ const Destinations = () => {
                                     )}
                                 </div>
                                 <a
-                                    href={`https://wa.me/6281234567890?text=Hello, I would like to book the ${selectedTrip.title} (${selectedTrip.location})`}
+                                    href={`https://wa.me/6282244308302?text=Hello, I would like to book the ${selectedTrip.title} (${selectedTrip.location})`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="btn-primary w-full md:w-auto flex items-center justify-center gap-2"

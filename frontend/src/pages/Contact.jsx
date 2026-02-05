@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { MapPin, Phone, Mail, Instagram, Facebook, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Instagram, Send } from 'lucide-react';
 import heroBg from '../assets/images/hero/hero-default.jpg';
 
 const Contact = () => {
@@ -8,15 +8,14 @@ const Contact = () => {
     }, []);
 
     const socialLinks = [
-        { icon: <Instagram className="w-6 h-6" />, url: 'https://instagram.com', color: 'hover:bg-[#E4405F]' },
+        { icon: <Instagram className="w-6 h-6" />, url: 'https://instagram.com/wildtrack_adventure', color: 'hover:bg-[#E4405F]' },
         {
             icon: (
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
                     <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                 </svg>
-            ), url: 'https://tiktok.com', color: 'hover:bg-[#000000]'
-        },
-        { icon: <Facebook className="w-6 h-6" />, url: 'https://facebook.com', color: 'hover:bg-[#1877F2]' }
+            ), url: 'https://tiktok.com/@glampingcampmalang', color: 'hover:bg-[#000000]'
+        }
     ];
 
     const contactDetails = [
@@ -25,8 +24,8 @@ const Contact = () => {
             title: "Our Office",
             content: (
                 <>
-                    <p>Jl. Soekarno Hatta No. 88</p>
-                    <p>Flores, NTT 86763, Indonesia</p>
+                    <p>Jl. Raya Prapatan Tulusayu No. 09, Tulusbesar</p>
+                    <p>Kec. Tumpang, Kab. Malang, Jawa Timur 65156</p>
                 </>
             )
         },
@@ -35,7 +34,7 @@ const Contact = () => {
             title: "WhatsApp",
             content: (
                 <>
-                    <p className="text-secondary font-medium mb-1">+62 812-3456-7890</p>
+                    <p className="text-secondary font-medium mb-1">+62 822-4430-8302</p>
                     <p className="text-gray-500 text-sm">Available 24/7</p>
                 </>
             )
@@ -45,7 +44,7 @@ const Contact = () => {
             title: "Email",
             content: (
                 <div className="break-all sm:break-normal">
-                    <p className="text-secondary font-medium mb-1">info@wildtrackadventure.com</p>
+                    <p className="text-secondary font-medium mb-1">wildtrackadventure@gmail.com</p>
                     <p className="text-gray-500 text-sm">We'll reply within 24 hours</p>
                 </div>
             )

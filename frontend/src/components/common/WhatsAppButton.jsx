@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function WhatsAppButton() {
     const [isScrolled, setIsScrolled] = useState(false);
-    const phoneNumber = "6281234567890"; // Placeholder number
+    const phoneNumber = "6282244308302"; // Placeholder number
     const whatsappUrl = `https://wa.me/${phoneNumber}`;
 
     useEffect(() => {
