@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { MapPin, Phone, Mail, Instagram, Send } from 'lucide-react';
 import heroBg from '../assets/images/hero/hero-default.jpg';
 
@@ -51,9 +51,58 @@ const Contact = () => {
         }
     ];
 
-    const handleSubmit = (e) => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [status, setStatus] = useState(null); // 'success' | 'error' | null
+
+    const handleChange = (e) => {
+        setFormData(prev => ({
+            ...prev,
+            [e.target.id]: e.target.value
+        }));
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission logic here
+        setIsSubmitting(true);
+        setStatus(null);
+
+        try {
+            const response = await fetch("https://formsubmit.co/ajax/wildtrackadventure@gmail.com", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    message: formData.message,
+                    _subject: `New Message from ${formData.name} - Wild Track Website`
+                })
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                setStatus('success');
+                setFormData({ name: '', email: '', phone: '', message: '' });
+            } else {
+                setStatus('error');
+                console.error("Form submission error:", result);
+            }
+        } catch (error) {
+            setStatus('error');
+            console.error("Form network error:", error);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -90,7 +139,7 @@ const Contact = () => {
                             <p className="text-gray-600 mb-10 leading-relaxed">
                                 Have questions about our trips? Want to customize a package? Or just want
                                 to say hello? We'd love to hear from you! Our team is here to help you plan
-                                the perfect Labuan Bajo adventure.
+                                the perfect Indonesia adventure.
                             </p>
 
                             <div className="space-y-6">
@@ -120,6 +169,25 @@ const Contact = () => {
                                     Send Us a <span className="text-secondary">Message</span>
                                 </h2>
 
+                                {status === 'success' && (
+                                    <div className="bg-green-50 text-green-700 p-4 rounded-xl mb-6 flex items-center gap-3">
+                                        <div className="bg-green-100 p-2 rounded-full">
+                                            <Send className="w-4 h-4" />
+                                        </div>
+                                        <div>
+                                            <p className="font-bold">Message Sent!</p>
+                                            <p className="text-sm">We'll get back to you within 24 hours.</p>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {status === 'error' && (
+                                    <div className="bg-red-50 text-red-700 p-4 rounded-xl mb-6">
+                                        <p className="font-bold">Something went wrong.</p>
+                                        <p className="text-sm">Please try again later or contact us via WhatsApp.</p>
+                                    </div>
+                                )}
+
                                 <form onSubmit={handleSubmit} className="space-y-4">
                                     <div>
                                         <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-1">
@@ -129,8 +197,11 @@ const Contact = () => {
                                             type="text"
                                             id="name"
                                             required
+                                            value={formData.name}
+                                            onChange={handleChange}
                                             placeholder="Your name"
-                                            className="w-full px-6 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all duration-300 bg-gray-50 focus:bg-white"
+                                            disabled={isSubmitting}
+                                            className="w-full px-6 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all duration-300 bg-gray-50 focus:bg-white disabled:opacity-50"
                                         />
                                     </div>
 
@@ -142,8 +213,11 @@ const Contact = () => {
                                             type="email"
                                             id="email"
                                             required
+                                            value={formData.email}
+                                            onChange={handleChange}
                                             placeholder="your.email@example.com"
-                                            className="w-full px-6 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all duration-300 bg-gray-50 focus:bg-white"
+                                            disabled={isSubmitting}
+                                            className="w-full px-6 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all duration-300 bg-gray-50 focus:bg-white disabled:opacity-50"
                                         />
                                     </div>
 
@@ -155,8 +229,11 @@ const Contact = () => {
                                             type="tel"
                                             id="phone"
                                             required
+                                            value={formData.phone}
+                                            onChange={handleChange}
                                             placeholder="+62 822-4430-8302"
-                                            className="w-full px-6 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all duration-300 bg-gray-50 focus:bg-white"
+                                            disabled={isSubmitting}
+                                            className="w-full px-6 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all duration-300 bg-gray-50 focus:bg-white disabled:opacity-50"
                                         />
                                     </div>
 
@@ -168,19 +245,30 @@ const Contact = () => {
                                             id="message"
                                             required
                                             rows="3"
+                                            value={formData.message}
+                                            onChange={handleChange}
                                             placeholder="Tell us about your dream trip..."
-                                            className="w-full px-6 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all duration-300 bg-gray-50 focus:bg-white resize-none"
+                                            disabled={isSubmitting}
+                                            className="w-full px-6 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all duration-300 bg-gray-50 focus:bg-white resize-none disabled:opacity-50"
                                         ></textarea>
                                     </div>
 
                                     <button
                                         type="submit"
-                                        className="w-full bg-secondary hover:bg-secondary-dark text-white font-bold py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg flex items-center justify-center gap-2"
+                                        disabled={isSubmitting}
+                                        className="w-full bg-secondary hover:bg-secondary-dark text-white font-bold py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
                                     >
-                                        <Send className="w-5 h-5" />
-                                        Send Message
+                                        {isSubmitting ? (
+                                            <>Sending...</>
+                                        ) : (
+                                            <>
+                                                <Send className="w-5 h-5" />
+                                                Send Message
+                                            </>
+                                        )}
                                     </button>
                                 </form>
+
                             </div>
                         </div>
                     </div>
@@ -194,7 +282,7 @@ const Contact = () => {
                         Follow Our <span className="text-secondary">Adventures</span>
                     </h2>
                     <p className="text-gray-600 mb-10 max-w-2xl mx-auto">
-                        Stay updated with our latest trips, special offers, and beautiful moments from Komodo National Park.
+                        Stay updated with our latest trips, special offers, and beautiful moments of Indonesia.
                     </p>
 
                     <div className="flex flex-wrap justify-center gap-6">
