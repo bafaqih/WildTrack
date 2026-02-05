@@ -155,7 +155,7 @@ const Contact = () => {
                                             type="tel"
                                             id="phone"
                                             required
-                                            placeholder="+62 812 3456 7890"
+                                            placeholder="+62 822-4430-8302"
                                             className="w-full px-6 py-3 rounded-xl border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all duration-300 bg-gray-50 focus:bg-white"
                                         />
                                     </div>
