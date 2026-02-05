@@ -185,6 +185,9 @@ const About = () => {
                         <h2 className="text-2xl md:text-3xl font-display font-bold mb-4">
                             Why Travel <span className="text-secondary">With Us?</span>
                         </h2>
+                        <p className="text-gray-600 text-lg">
+                            Six reasons why Wild Track Adventure is your best travel partner
+                        </p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
@@ -192,7 +195,7 @@ const About = () => {
                             {
                                 icon: <MapPin className="w-5 h-5 text-secondary" />,
                                 title: "Local Expertise",
-                                description: "Our guides are born and raised in Labuan Bajo, with deep knowledge of every hidden gem and local secret."
+                                description: "Our guides are experts in every destination, offering deep local knowledge and uncovering hidden gems across Indonesia."
                             },
                             {
                                 icon: <Shield className="w-5 h-5 text-secondary" />,
