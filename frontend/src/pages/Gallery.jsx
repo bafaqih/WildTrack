@@ -268,7 +268,7 @@ const Gallery = () => {
                         Follow Our <span className="text-secondary">Adventures</span>
                     </h2>
                     <p className="text-gray-600 mb-10 max-w-2xl mx-auto">
-                        Stay updated with our latest trips, special offers, and beautiful moments from Komodo National Park.
+                        Stay updated with our latest trips, special offers, and beautiful moments of Indonesia.
                     </p>
 
                     <div className="flex flex-wrap justify-center gap-6">
