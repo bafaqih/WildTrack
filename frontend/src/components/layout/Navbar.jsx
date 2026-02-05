@@ -69,7 +69,13 @@ const Navbar = () => {
                     <Link
                         to="/"
                         className="grid items-center"
-                        onClick={() => setIsMobileMenuOpen(false)}
+                        onClick={(e) => {
+                            setIsMobileMenuOpen(false);
+                            if (location.pathname === '/') {
+                                e.preventDefault();
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }
+                        }}
                     >
                         {/* Mobile Icon White - visible when not scrolled */}
                         <img
@@ -114,6 +120,12 @@ const Navbar = () => {
                                             ? 'text-gray-800 hover:text-secondary'
                                             : 'text-white hover:text-secondary'
                                         }`}
+                                    onClick={(e) => {
+                                        if (link.path === '/' && location.pathname === '/') {
+                                            e.preventDefault();
+                                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                                        }
+                                    }}
                                 >
                                     {link.name}
                                     {/* Underline */}
