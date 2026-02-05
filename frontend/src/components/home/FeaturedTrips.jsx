@@ -17,7 +17,7 @@ const FeaturedTrips = () => {
                         Featured <span className="text-secondary">Trips</span>
                     </h2>
                     <p className="text-gray-600 text-lg">
-                        Choose from our carefully curated trip packages to explore the wonders of Labuan Bajo
+                        Choose from our carefully curated trip packages to explore the wonders of Indonesia
                     </p>
                 </div>
 

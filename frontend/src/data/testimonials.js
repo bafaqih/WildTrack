@@ -7,34 +7,34 @@ export const testimonials = [
     review: "Trip terbaik di hidupku! Crew ramah dan itinerary mantap. Melihat komodo langsung itu pengalaman yang tak terlupakan!",
     rating: 5,
     image: "/src/assets/images/testimonials/amanda.jpg",
-    tripType: "3D2N Adventure"
+    tripType: "One Day Trip (Labuan Bajo)"
   },
   {
     id: 2,
-    name: "Michael Chen",
-    location: "Singapore",
-    review: "Wild Track exceeded all expectations! Professional guides, amazing food, and the most beautiful scenery I've ever seen. Highly recommended!",
+    name: "Budi Santoso",
+    location: "Surabaya, Indonesia",
+    review: "Sunrise di Bromo benar-benar magis! Driver jeep sangat berpengalaman dan spot fotonya juara. Layanan yang luar biasa.",
     rating: 5,
-    image: "/src/assets/images/testimonials/michael.jpg",
-    tripType: "4D3N Explorer"
+    image: "/src/assets/images/testimonials/budi.jpg",
+    tripType: "Bromo Sunrise (Private Trip)"
   },
   {
     id: 3,
     name: "Sarah Johnson",
     location: "Australia",
-    review: "Swimming with manta rays was a dream come true! The team was incredibly knowledgeable and made sure we had the best experience.",
+    review: "Tumpak Sewu is unlike anything I've seen. The waterfall is majestic. Needs some hiking but totally worth it. Great guide!",
     rating: 5,
     image: "/src/assets/images/testimonials/sarah.jpg",
-    tripType: "4D3N Explorer"
+    tripType: "Tumpak Sewu Tour"
   },
   {
     id: 4,
-    name: "Budi Santoso",
-    location: "Surabaya, Indonesia",
-    review: "Harga terjangkau dengan pelayanan maksimal. Pemandu lokal sangat membantu dan paham betul tentang setiap lokasi. Worth it banget!",
+    name: "Michael Chen",
+    location: "Singapore",
+    review: "Wild Track exceeded all expectations! Professional guides, amazing food, and the most beautiful scenery I've ever seen.",
     rating: 5,
-    image: "/src/assets/images/testimonials/budi.jpg",
-    tripType: "3D2N Adventure"
+    image: "/src/assets/images/testimonials/michael.jpg",
+    tripType: "4D3N Explorer"
   },
   {
     id: 5,
@@ -49,7 +49,7 @@ export const testimonials = [
     id: 6,
     name: "David Kim",
     location: "South Korea",
-    review: "Perfect organization from start to finish. The sunrise at Padar Island was breathtaking. Thank you Wild Track for an amazing adventure!",
+    review: "Perfect organization from start to finish. The sunrise at Padar Island was breathtaking. Thank you for an amazing adventure!",
     rating: 5,
     image: "/src/assets/images/testimonials/david.jpg",
     tripType: "5D4N Ultimate"

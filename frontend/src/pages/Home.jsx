@@ -36,7 +36,7 @@ const Home = () => {
                             Ready For Your Adventure?
                         </h2>
                         <p className="text-xl text-white/90 mb-8">
-                            Start planning your dream trip to Labuan Bajo today. Our team is ready to help you create unforgettable memories.
+                            Start planning your dream trip to Indonesia today. Our team is ready to help you create unforgettable memories.
                         </p>
                         <Link
                             to="/contact"

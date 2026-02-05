@@ -14,7 +14,7 @@ const DestinationHighlights = () => {
                         Destination <span className="text-secondary">Highlights</span>
                     </h2>
                     <p className="text-gray-600 text-lg">
-                        Discover the most breathtaking locations across Labuan Bajo and Komodo National Park
+                        Discover the most breathtaking locations across Indonesia's most stunning landscapes
                     </p>
                 </div>
 

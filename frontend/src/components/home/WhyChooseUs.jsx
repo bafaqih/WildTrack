@@ -5,7 +5,7 @@ const WhyChooseUs = () => {
         {
             icon: <Users className="w-12 h-12 text-secondary" />,
             title: "Local Expert Guides",
-            description: "Experienced and friendly local guides who know every corner of Labuan Bajo"
+            description: "Experienced and friendly local guides who know every corner of our destinations"
         },
         {
             icon: <Ship className="w-12 h-12 text-secondary" />,
@@ -33,7 +33,7 @@ const WhyChooseUs = () => {
                         Why Choose <span className="text-secondary">Wild Track?</span>
                     </h2>
                     <p className="text-gray-600 text-lg">
-                        We provide the best service and unforgettable experiences for your Labuan Bajo adventure
+                        We provide the best service and unforgettable experiences for your Indonesian adventure
                     </p>
                 </div>
 

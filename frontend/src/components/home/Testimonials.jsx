@@ -120,7 +120,7 @@ const Testimonials = () => {
                         What Our <span className="text-secondary">Travelers Say</span>
                     </h2>
                     <p className="text-gray-600 text-lg">
-                        Real experiences from adventurers who explored Labuan Bajo with us
+                        Real experiences from adventurers who explored Indonesia with us
                     </p>
                 </div>
 
