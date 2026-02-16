@@ -86,4 +86,4 @@ npm run preview
 
 ---
 
-Enjoy building with WildTrack! 🌍✨
+Made with ❤️ by @fadilbaf
